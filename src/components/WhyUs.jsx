@@ -65,17 +65,21 @@ function WhyUs() {
           اعــمــالنـــا
         </h2>
 
-        <div className="why-us__buttons">
-          <a href="#portfolio" className="why-us__button">
+        <div className="why-us__buttons" id="portfolio">
+          <a href="/NewEbdaaWebsite/motion-graphics" className="why-us__button">
             تصميم موشن جرافيك
           </a>
 
-          <a href="#portfolio" className="why-us__button">
+          <a href="/NewEbdaaWebsite/advertising-videos" className="why-us__button">
             تصوير وإنتاج فيديو إعلاني
           </a>
 
-          <a href="#portfolio" className="why-us__button">
+          <a href="/NewEbdaaWebsite/advertising-campaigns" className="why-us__button">
             حملات إعلانية
+          </a>
+
+          <a href="/NewEbdaaWebsite/websites" className="why-us__button">
+            تصميم مواقع إلكترونية
           </a>
         </div>
 

@@ -150,26 +150,23 @@
   color: #f1bc6a;
 }
 
-/* =========================
-   WORK BUTTONS
-========================= */
-
 .why-us__buttons {
   width: 100%;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 320px));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   justify-content: center;
-  gap: 122px;
+  gap: 24px;
 }
 
 .why-us__button {
   width: 100%;
+  min-width: 0;
   height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 15px;
+  padding: 0 10px;
   background: #459daf;
   border-radius: 12px;
   font-family: 'Changa', sans-serif;
