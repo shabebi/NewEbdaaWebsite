@@ -1084,3 +1084,33 @@
     border-radius: 12px;
   }
 }
+
+/* Fix service card headings on mobile */
+@media (max-width: 600px) {
+  .service-card__text {
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .service-card__text h3,
+  .service-card--content .service-card__text h3 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 390px) {
+  .service-card__text h3,
+  .service-card--content .service-card__text h3 {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+  }
+}

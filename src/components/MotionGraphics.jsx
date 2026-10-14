@@ -2,30 +2,9 @@ import './MotionGraphics.css'
 
 import desktopImage from '../assets/خلفية الموشن عرض.png'
 import mobileImage from '../assets/خلفية الموشن طول.png 2.png'
-
-import skyOfArabianGulfLogo from '../assets/شعار سماء الخليج.png'
-import quwatAsadLogo from '../assets/شعار قوة اسد.png'
-import cocaColaLogo from '../assets/شعار كوكاكولا.png'
-import ebdaaMediaLogo from '../assets/شعار ابداع ميديا.png'
-import ahliyaLogo from '../assets/شعار الاهلية.png'
-import anisPhoneLogo from '../assets/شعار انيس فون.png'
-import tamkeenBankLogo from '../assets/شعار بنك التمكين.png'
-import qutaibiBankLogo from '../assets/شعار بنك القطيبي.png'
-import turboTravelLogo from '../assets/شعار تيربو ترافل.png'
+import DynamicPortfolio from './DynamicPortfolio'
 
 const homeUrl = import.meta.env.BASE_URL
-
-const clients = [
-  { name: 'سماء الخليج العربي', logo: skyOfArabianGulfLogo },
-  { name: 'قوة أسد', logo: quwatAsadLogo },
-  { name: 'Coca-Cola', logo: cocaColaLogo },
-  { name: 'إبداع ميديا', logo: ebdaaMediaLogo },
-  { name: 'الأهلية', logo: ahliyaLogo },
-  { name: 'أنيس فون', logo: anisPhoneLogo },
-  { name: 'بنك التمكين', logo: tamkeenBankLogo },
-  { name: 'بنك القطيبي', logo: qutaibiBankLogo },
-  { name: 'تيربو ترافل', logo: turboTravelLogo },
-]
 
 function MotionGraphics() {
   return (
@@ -79,20 +58,7 @@ function MotionGraphics() {
       <section className="service-page__clients" id="clients">
         <div className="service-page__clients-inner">
           <h2>أعمالنا في تصميم الموشن جرافيك</h2>
-
-          <div className="service-page__logo-grid">
-            {clients.map((client) => (
-              <div className="service-page__logo-card" key={client.name}>
-                <div className="service-page__logo-card-inner">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <DynamicPortfolio category="motion" />
         </div>
       </section>
     </div>

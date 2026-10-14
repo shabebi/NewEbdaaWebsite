@@ -5,6 +5,8 @@ import teamIcon from '../assets/2.png'
 import qualityIcon from '../assets/3.png'
 import speedIcon from '../assets/4.png'
 
+const baseUrl = import.meta.env.BASE_URL
+
 const features = [
   {
     title: 'الخبرة الواسعة',
@@ -32,11 +34,29 @@ const features = [
   },
 ]
 
+const portfolioLinks = [
+  {
+    label: 'تصميم موشن جرافيك',
+    path: 'motion-graphics',
+  },
+  {
+    label: 'تصوير وإنتاج فيديو إعلاني',
+    path: 'advertising-videos',
+  },
+  {
+    label: 'حملات إعلانية',
+    path: 'advertising-campaigns',
+  },
+  {
+    label: 'تصميم مواقع إلكترونية',
+    path: 'websites',
+  },
+]
+
 function WhyUs() {
   return (
     <section className="why-us" id="why-us">
       <div className="why-us__container">
-
         <h2 className="why-us__title">
           ما يجعل إبداع ميديا الأفضل ؟
         </h2>
@@ -66,23 +86,16 @@ function WhyUs() {
         </h2>
 
         <div className="why-us__buttons" id="portfolio">
-          <a href="/NewEbdaaWebsite/motion-graphics" className="why-us__button">
-            تصميم موشن جرافيك
-          </a>
-
-          <a href="/NewEbdaaWebsite/advertising-videos" className="why-us__button">
-            تصوير وإنتاج فيديو إعلاني
-          </a>
-
-          <a href="/NewEbdaaWebsite/advertising-campaigns" className="why-us__button">
-            حملات إعلانية
-          </a>
-
-          <a href="/NewEbdaaWebsite/websites" className="why-us__button">
-            تصميم مواقع إلكترونية
-          </a>
+          {portfolioLinks.map((item) => (
+            <a
+              key={item.path}
+              href={`${baseUrl}#/${item.path}`}
+              className="why-us__button"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
-
       </div>
     </section>
   )

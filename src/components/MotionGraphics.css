@@ -123,7 +123,9 @@
   line-height: 1.45;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform 180ms ease, opacity 180ms ease;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
 }
 
 .service-page--motiongraphics .service-page__button:hover {
@@ -204,11 +206,12 @@
 .service-page--motiongraphics .service-page__logo-grid {
   display: grid;
   grid-template-columns: repeat(3, 235px);
-  grid-auto-rows: 158px;
+  grid-template-rows: repeat(5, 158px);
   justify-content: center;
   align-content: start;
   column-gap: 65px;
   row-gap: 50px;
+  min-height: 990px;
 }
 
 .service-page--motiongraphics .service-page__logo-card {
@@ -284,9 +287,10 @@
 
   .service-page--motiongraphics .service-page__logo-grid {
     grid-template-columns: repeat(2, 235px);
-    grid-auto-rows: 158px;
+    grid-template-rows: repeat(8, 158px);
     column-gap: 35px;
     row-gap: 35px;
+    min-height: calc(8 * 158px + 7 * 35px);
   }
 }
 
@@ -371,8 +375,10 @@
 
   .service-page--motiongraphics .service-page__logo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(8, auto);
     grid-auto-rows: auto;
     gap: 18px 12px;
+    min-height: calc(8 * ((100vw - 52px) / 2 * 158 / 235) + 7 * 18px);
   }
 
   .service-page--motiongraphics .service-page__logo-card {

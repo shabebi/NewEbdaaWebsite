@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 import Header from './components/Header'
@@ -11,8 +11,10 @@ import Footer from './components/Footer'
 import MotionGraphics from './components/MotionGraphics'
 import AdvertisingVideos from './components/AdvertisingVideos'
 import AdvertisingCampaigns from './components/AdvertisingCampaigns'
+import Websites from './components/Websites'
 
-// Add these imports if you created these components:
+import Admin from './components/Admin'
+
 import EbdaaContentServicePage from './components/EbdaaContentServicePage'
 import EbdaaCampaignsServicePage from './components/EbdaaCampaignsServicePage'
 import EbdaaIdentityServicePage from './components/EbdaaIdentityServicePage'
@@ -24,6 +26,7 @@ const serviceRoutes = {
   '/motion-graphics': MotionGraphics,
   '/advertising-videos': AdvertisingVideos,
   '/advertising-campaigns': AdvertisingCampaigns,
+  '/websites': Websites,
 
   '/services/content': EbdaaContentServicePage,
   '/services/campaigns': EbdaaCampaignsServicePage,
@@ -36,7 +39,10 @@ const serviceRoutes = {
 function HomePage() {
   useEffect(() => {
     const hash = window.location.hash
-    if (!hash) return
+
+    if (!hash || hash === '#admin-ebdaa-2026' || hash === '#/admin') {
+      return
+    }
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -67,16 +73,34 @@ function HomePage() {
 }
 
 function App() {
-  const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '')
-  const pathname = window.location.pathname
+  const [currentHash, setCurrentHash] = useState(
+    window.location.hash
+  )
 
-  const pathWithoutBase =
-    basePath && pathname.startsWith(basePath)
-      ? pathname.slice(basePath.length)
-      : pathname
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash)
+    }
 
-  const path = pathWithoutBase.replace(/\/+$/, '') || '/'
-  const ServiceComponent = serviceRoutes[path]
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
+  const route = currentHash.startsWith('#/')
+    ? currentHash.slice(1).split('?')[0].replace(/\/+$/, '') || '/'
+    : '/'
+
+  if (
+    currentHash === '#admin-ebdaa-2026' ||
+    route === '/admin'
+  ) {
+    return <Admin />
+  }
+
+  const ServiceComponent = serviceRoutes[route]
 
   if (ServiceComponent) {
     return (

@@ -418,3 +418,33 @@
     border-radius: 8px;
   }
 }
+/* Make feature cards taller so text stays inside */
+.why-us__card {
+  height: auto;
+  min-height: 260px;
+  aspect-ratio: auto;
+}
+
+/* Tablet */
+@media (max-width: 1200px) and (min-width: 601px) {
+  .why-us__card {
+    min-height: 260px;
+    aspect-ratio: auto;
+  }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .why-us__card {
+    min-height: 185px;
+    aspect-ratio: auto;
+  }
+}
+
+/* Small phone */
+@media (max-width: 390px) {
+  .why-us__card {
+    min-height: 135px;
+    aspect-ratio: auto;
+  }
+}

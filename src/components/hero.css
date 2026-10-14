@@ -5,21 +5,10 @@
 .hero {
   position: relative;
   width: 100%;
-
-  /*
-    Original design:
-    1280px × 830px
-    830 / 1280 = 64.84375vw
-  */
-
   height: min(830px, 64.84375vw);
-
   overflow: visible;
-
-  background: #dce5e8;
-
+  background: #dbe3e6;
   direction: rtl;
-
   margin-bottom: min(100px, 6.25vw);
 }
 
